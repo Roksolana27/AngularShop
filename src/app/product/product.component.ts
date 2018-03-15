@@ -23,6 +23,10 @@ export class ProductComponent implements OnInit {
   isAvailable: boolean;
 
   constructor() {
+    this.name = 'Helmet';
+    this.description = 'Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain. ';
+    this.price = 99.95;
+    this.isAvailable = true;
   }
 
   onBuy() {
