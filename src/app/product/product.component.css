@@ -4,3 +4,32 @@
 .btn-buy{
   float: right;
 }
+.navbar{
+  background-color: #57c555;
+}
+.navbar-brand, .nav-item a{
+  color: white;
+}
+.img-description{
+  display: inline-block;
+}
+.img-card{
+  float: left;
+}
+.card-title{
+  margin: 12px;
+}
+.btn-buy, .btn-review{
+  font-size: .875rem;
+  color: #fff;
+  background-color: #57c655;
+  padding: 12px 15px;
+  font-family: sans-serif;
+  font-weight: 400;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+

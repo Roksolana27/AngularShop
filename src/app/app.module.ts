@@ -6,8 +6,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 
-import { ProductsService} from './core/products.service';
-import { CartService} from './core/cart.service';
+import { ProductsService} from './product-list/products.service';
+import { CartService} from './cart/cart.service';
 
 @NgModule({
   declarations: [

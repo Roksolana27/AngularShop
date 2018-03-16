@@ -1,3 +1,41 @@
 .goods{
   margin: 1.5rem 0;
 }
+.products-section{
+  padding-top: 80px;
+}
+.btn-buy{
+  float: right;
+}
+.navbar{
+  background-color: #57c555;
+}
+.navbar-brand, .nav-item a{
+  color: white;
+}
+.card-title a{
+  color: #343535;
+  display: block;
+  font-weight: 500;
+  min-height: 38px;
+  text-decoration: none;
+}
+.add-item{
+  float: right;
+  font-size: .875rem;
+  color: #fff;
+  background-color: #3a444e;
+  padding: 12px 15px;
+  font-family: sans-serif;
+  font-weight: 400;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+.basket{
+  cursor: pointer;
+  align-self: center;
+}
+

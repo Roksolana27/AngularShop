@@ -1,7 +1,9 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Shop</a>
+    <a class="navbar-brand" href="#">
+      <img src="/assets/img/logo_bergzeit.svg" alt="Bergzeit">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,6 +23,11 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link basket" href="#">
+            <img src="/assets/img/cart.svg" alt="cart" width="24" height="24">
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -29,15 +36,12 @@
 <!-- Page Content -->
 <div class="container">
 
-  <div class="row">
+  <div class="row products-section">
 
     <div class="col-lg-3">
 
-      <h1 class="my-4">Shop Name</h1>
       <div class="list-group">
-        <a href="#" class="list-group-item">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
+
       </div>
 
     </div>
@@ -49,7 +53,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of goods">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="#"><img class="card-img-top" src="{{item.img}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">{{ item.name }}</a>
@@ -59,6 +63,7 @@
             </div>
             <div class="card-footer">
               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              <button class="add-item">Add to basket</button>
             </div>
           </div>
         </div>
