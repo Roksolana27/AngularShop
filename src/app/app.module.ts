@@ -8,16 +8,20 @@ import { CartComponent } from './cart/cart.component';
 
 import { ProductsService} from './product-list/products.service';
 import { CartService} from './cart/cart.service';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     ProductListComponent,
-    CartComponent
+    CartComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [
     ProductsService,

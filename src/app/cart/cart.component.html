@@ -14,16 +14,16 @@
             <th>Total</th>
           </tr>
           <!--Item-->
-          <tr class="item first">
+          <tr class="item first" *ngFor="let item of cart">
             <td class="thumb"><a href="shop-single-item-v1.html"><img src="" alt=""></a></td>
-            <td class="name"><a href="shop-single-item-v1.html">Wristlet</a></td>
-            <td class="price">715,00 $</td>
+            <td class="name"><a href="shop-single-item-v1.html">{{item.name}}</a></td>
+            <td class="price">{{item.price}} $</td>
             <td class="qnt-count">
               <a class="incr-btn" href="#">-</a>
-              <input class="quantity form-control" type="text" value="2">
+              <input class="quantity form-control" type="text" value="1">
               <a class="incr-btn" href="#">+</a>
             </td>
-            <td class="total">2715,00 $</td>
+            <td class="total">{{item.price}} $</td>
             <td class="delete"><i class="icon-delete">x</i></td>
           </tr>
           <!--Item-->
@@ -39,7 +39,7 @@
             <table>
               <tbody><tr>
                 <td>Cart subtotal</td>
-                <td class="total align-r">2715,00 $</td>
+                <td class="total align-r"> $</td>
               </tr>
               <tr class="devider">
                 <td>Shipping</td>
@@ -47,7 +47,7 @@
               </tr>
               <tr>
                 <td>Order total</td>
-                <td class="total align-r">2715,00 $</td>
+                <td class="total align-r"> $</td>
               </tr>
               </tbody></table>
 

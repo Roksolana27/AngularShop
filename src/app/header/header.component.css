@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #57c555;
+}
+.navbar-brand, .nav-item a{
+    color: white;
+}
+.basket{
+    position: relative;
+}
+.warning-icon{
+    position: absolute;
+    left: 1px;
+    top: 20px;
+}

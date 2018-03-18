@@ -7,12 +7,6 @@
 .btn-buy{
   float: right;
 }
-.navbar{
-  background-color: #57c555;
-}
-.navbar-brand, .nav-item a{
-  color: white;
-}
 .card-title a{
   color: #343535;
   display: block;
