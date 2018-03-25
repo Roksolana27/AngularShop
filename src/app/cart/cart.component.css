@@ -57,6 +57,7 @@ h2.title, h3{
   font-size: 1.3em;
   font-weight: normal;
   line-height: 34px;
+  cursor: pointer;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   transition: background 0.3s;

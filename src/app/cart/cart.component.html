@@ -19,11 +19,11 @@
             <td class="name"><a href="shop-single-item-v1.html">{{item.name}}</a></td>
             <td class="price">{{item.price}} $</td>
             <td class="qnt-count">
-              <a class="incr-btn" href="#">-</a>
-              <input class="quantity form-control" type="text" value="1">
-              <a class="incr-btn" href="#">+</a>
+              <a class="incr-btn" (click)="removeOne(item)">-</a>
+              <input class="quantity form-control" type="text" [value]="item.quantity" disabled>
+              <a class="incr-btn" (click)="addOne(item)">+</a>
             </td>
-            <td class="total">{{item.price}} $</td>
+            <td class="total">{{item.totalPrice}} $</td>
             <td class="delete"><i class="icon-delete">x</i></td>
           </tr>
           <!--Item-->

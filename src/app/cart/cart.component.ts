@@ -12,6 +12,18 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
 
+  addOne(item) {
+    item.totalPrice =  Math.round((item.totalPrice + item.price) * 100 ) / 100;
+    item.quantity++;
+  }
+
+  removeOne(item) {
+    if (item.totalPrice > 0) {
+      item.totalPrice = Math.round((item.totalPrice - item.price) * 100) / 100;
+      item.quantity--;
+    }
+  }
+
   ngOnInit() {
     this.cart = this.cartService.getCartProducts();
   }

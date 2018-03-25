@@ -8,7 +8,11 @@ export class CartService {
   constructor() { }
 
   getCartProducts() {
-    return this.cartProducts.slice();
+    return this.cartProducts.map(data => {
+      data.totalPrice = data.price;
+      data.quantity = 1;
+      return data;
+    });
   }
 
   addProductToCart(item: Product) {
