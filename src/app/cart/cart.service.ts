@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Items } from '../product-list/goods';
-import { Observable } from 'rxjs/Observable';
+import { Product } from '../product-list/shared/interfaces/products.interface';
+// import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CartService {
-  private cartProducts: Items[] = [];
+  private cartProducts: Product[] = [];
   constructor() { }
 
-  getCartProducts(){
+  getCartProducts() {
     return this.cartProducts.slice();
   }
 
-  addProductToCart(item: Items){
+  addProductToCart(item: Product) {
     this.cartProducts.push(item);
   }
 

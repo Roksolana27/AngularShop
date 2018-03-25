@@ -28,7 +28,7 @@
             </div>
             <div class="card-footer">
               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              <button class="add-item" (click)="onAddToCart(item)">Add to basket</button>
+              <button class="add-item" disabled="{{item.available}}" (click)="onAddToCart(item)">Add to basket</button>
             </div>
           </div>
         </div>
