@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './shared/services/products.service';
-import { CartService } from '../cart/cart.service';
+import { CartService } from '../cart/shared/services/cart.service';
 import { Product } from './shared/interfaces/products.interface';
 
 @Component({
@@ -16,7 +16,6 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productService.getProducts()
       .then(products => this.products = products);
-    console.log(this.products);
   }
 
   onAddToCart(item) {
@@ -24,5 +23,8 @@ export class ProductListComponent implements OnInit {
     alert(`You have just added ${item.name} to cart.`);
   }
 }
+
+
+
 
 

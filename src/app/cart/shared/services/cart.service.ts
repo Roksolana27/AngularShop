@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../product-list/shared/interfaces/products.interface';
+import { Product } from '../../../product-list/shared/interfaces/products.interface';
 // import { Observable } from 'rxjs/Observable';
 
 @Injectable()

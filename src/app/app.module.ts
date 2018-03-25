@@ -7,7 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 
 import { ProductsService} from './product-list/shared/services/products.service';
-import { CartService} from './cart/cart.service';
+import { CartService} from './cart/shared/services/cart.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 

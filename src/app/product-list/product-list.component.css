@@ -33,3 +33,7 @@
   align-self: center;
 }
 
+.add-item:disabled{
+  cursor: not-allowed;
+}
+
