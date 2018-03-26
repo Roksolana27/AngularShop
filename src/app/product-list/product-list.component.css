@@ -37,3 +37,7 @@
   cursor: not-allowed;
 }
 
+.item-disabled{
+  color: grey;
+}
+
