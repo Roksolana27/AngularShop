@@ -6,7 +6,7 @@
     <div class="col-lg-3">
 
       <div class="list-group">
-
+        <input type="text" id="search-product" [(ngModel)]="searchProduct" placeholder="Search for product..">
       </div>
 
     </div>
@@ -16,7 +16,7 @@
 
       <div class="row goods">
 
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of products">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of products | filter : searchProduct">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="{{item.img}}" alt="product"></a>
             <div class="card-body">
