@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../../product-list/shared/interfaces/products.interface';
-// import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CartService {
@@ -17,6 +16,10 @@ export class CartService {
 
   addProductToCart(item: Product) {
     this.cartProducts.push(item);
+  }
+
+  removeProductFromCart(index) {
+    this.cartProducts.splice(index, 1);
   }
 
 }

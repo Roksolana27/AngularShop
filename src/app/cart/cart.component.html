@@ -14,17 +14,17 @@
             <th>Total</th>
           </tr>
           <!--Item-->
-          <tr class="item first" *ngFor="let item of cart">
+          <tr class="item first" *ngFor="let item of cart; let i = index" [appHighlight]="color">
             <td class="thumb"><a href="shop-single-item-v1.html"><img src="" alt=""></a></td>
             <td class="name"><a href="shop-single-item-v1.html">{{item.name}}</a></td>
             <td class="price">{{item.price}} $</td>
             <td class="qnt-count">
-              <a class="incr-btn" (click)="removeOne(item)">-</a>
+              <a class="incr-btn" (click)="decrement(item)">-</a>
               <input class="quantity form-control" type="text" [value]="item.quantity" disabled>
-              <a class="incr-btn" (click)="addOne(item)">+</a>
+              <a class="incr-btn" (click)="increment(item)">+</a>
             </td>
             <td class="total">{{item.totalPrice}} $</td>
-            <td class="delete"><i class="icon-delete">x</i></td>
+            <td class="delete"><i class="icon-delete" (click)="remove(i)">x</i></td>
           </tr>
           <!--Item-->
           </tbody>
