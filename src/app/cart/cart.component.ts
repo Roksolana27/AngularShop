@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './shared/services/cart.service';
-import { Product } from '../product-list/shared/interfaces/products.interface';
+import { Product } from './../product-list/shared/interfaces/products.interface';
 
 @Component({
   selector: 'app-cart',
@@ -9,26 +9,8 @@ import { Product } from '../product-list/shared/interfaces/products.interface';
 })
 export class CartComponent implements OnInit {
   cart: Product[] = [];
-  color: string;
 
   constructor(private cartService: CartService) { }
-
-  increment(item) {
-    item.totalPrice =  Math.round((item.totalPrice + item.price) * 100 ) / 100;
-    item.quantity++;
-  }
-
-  decrement(item) {
-    if (item.totalPrice > 0) {
-      item.totalPrice = Math.round((item.totalPrice - item.price) * 100) / 100;
-      item.quantity--;
-    }
-  }
-
-  remove(index) {
-    this.cartService.removeProductFromCart(index);
-    this.getCartProducts();
-  }
 
   getCartProducts(){
     this.cart = this.cartService.getCartProducts();
