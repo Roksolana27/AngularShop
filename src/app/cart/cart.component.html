@@ -5,21 +5,9 @@
       <!--Items List-->
       <div class="col-lg-9 col-md-9">
         <h2 class="title">Shopping cart</h2>
-        <table class="items-list">
-          <tbody><tr>
-            <th>&nbsp;</th>
-            <th>Product name</th>
-            <th>Product price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-          <!--Item-->
 
-          <app-cart-item [cart]="cart" (cart)="getCartProducts($event)"></app-cart-item>
+        <app-cart-item [cart]="cart" (cartItem)="removeCartProduct($event)"></app-cart-item>
 
-          <!--Item-->
-          </tbody>
-        </table>
       </div>
 
       <!--Sidebar-->
