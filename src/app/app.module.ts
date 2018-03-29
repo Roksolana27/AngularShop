@@ -4,15 +4,12 @@ import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './product-list/products.module';
 
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
-
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
     HeaderComponent
   ],
   imports: [

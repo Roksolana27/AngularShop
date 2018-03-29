@@ -8,11 +8,13 @@ import { Product } from './../../product-list/shared/interfaces/products.interfa
 })
 export class CartItemComponent implements OnInit {
   color: string;
-  @Input()
-  cart: Product[] = [];
+  @Input() cart: Product;
 
   @Output()
   cartItem = new EventEmitter<Product>();
+
+  @Output()
+  cartItemUpdate = new EventEmitter<Product>();
 
   constructor() { }
 
@@ -20,15 +22,17 @@ export class CartItemComponent implements OnInit {
     this.cartItem.emit(i);
   }
 
-  increment(item) {
+  increment(item: Product) {
     item.totalPrice =  Math.round((item.totalPrice + item.price) * 100 ) / 100;
     item.quantity++;
+    this.cartItemUpdate.emit(item);
   }
 
-  decrement(item) {
+  decrement(item: Product) {
     if (item.totalPrice > 0) {
       item.totalPrice = Math.round((item.totalPrice - item.price) * 100) / 100;
       item.quantity--;
+      this.cartItemUpdate.emit(item);
     }
   }
 

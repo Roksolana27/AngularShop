@@ -9,6 +9,7 @@ import { Product } from './../product-list/shared/interfaces/products.interface'
 })
 export class CartComponent implements OnInit {
   cart: Product[] = [];
+  subtotal: any;
 
   constructor(private cartService: CartService) { }
 
@@ -20,6 +21,15 @@ export class CartComponent implements OnInit {
     this.cartService.removeProductFromCart(index);
     this.getCartProducts();
   }
+
+  updateCartProduct(item: Product){
+    this.cartService.updateCartProduct(item);
+  }
+
+  cleanCart(){
+    this.cartService.cleanCart();
+  }
+
 
   ngOnInit() {
     this.getCartProducts();

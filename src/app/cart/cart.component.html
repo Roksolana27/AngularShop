@@ -6,7 +6,7 @@
       <div class="col-lg-9 col-md-9">
         <h2 class="title">Shopping cart</h2>
 
-        <app-cart-item [cart]="cart" (cartItem)="removeCartProduct($event)"></app-cart-item>
+        <app-cart-item [cart]="cart" (cartItem)="removeCartProduct($event)" (cartItemUpdate)="updateCartProduct($event)"></app-cart-item>
 
       </div>
 
@@ -17,8 +17,8 @@
           <div class="cart-totals">
             <table>
               <tbody><tr>
-                <td>Cart subtotal</td>
-                <td class="total align-r"> $</td>
+                <td>Cart subtotal: </td>
+                <td class="total align-r"> {{subtotal}} $</td>
               </tr>
               <tr class="devider">
                 <td>Shipping</td>
@@ -55,7 +55,7 @@
               <label class="sr-only" for="postcode">Postcode/ ZIP</label>
               <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode/ ZIP">
             </div>
-            <input type="submit" class="btn btn-primary btn-sm btn-block" name="update-totals" value="Update totals">
+            <input class="btn btn-primary btn-sm btn-block" name="update-totals" value="Clean cart" (click)="cleanCart()">
           </div>
         </form>
       </div>

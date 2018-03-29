@@ -8,3 +8,16 @@ h2.title, h3{
   margin-top: 8px;
   margin-bottom: 24px;
 }
+
+input.btn.btn-black.btn-block {
+  outline: none;
+  border-radius: 0;
+  margin: 15px 0;
+}
+
+input.btn.btn-primary.btn-sm.btn-block {
+  background: #292c2e !important;
+  border-radius: 0;
+  padding: 10px 0;
+  border: none;
+}
