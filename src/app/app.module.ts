@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './product-list/products.module';
+import { CoreModule } from "./core/core.module";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule,
     CartModule,
-    ProductsModule
+    ProductsModule,
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })

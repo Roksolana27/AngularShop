@@ -10,7 +10,7 @@ export class LocalStorageService {
     localStorage.setItem('products', JSON.stringify({products: products}));
   }
 
-  public getProducts(){
+  public getProducts() {
     let localStorageItem = JSON.parse(localStorage.getItem('products'))
   }
 
@@ -19,10 +19,10 @@ export class LocalStorageService {
 
   }
 
-  // public removeProduct(id: number): void{
-  //   let products = this.getProducts();
-  //   products = products.filter( product => product.id != id );
-  //   this.setLocalStorageProduct(products);
-  // }
+  public removeProduct(id: number): void{
+    let products: any = this.getProducts();
+    products = products.filter( product => product.id != id );
+    localStorage.removeItem(products);
+  }
 
 }
