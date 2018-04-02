@@ -19,7 +19,6 @@ export class CartService {
   }
 
   updateCartProduct(item: Product) {
-    console.log(item);
     const i = this.cartProducts.findIndex(data => data.id === item.id );
     if (i > -1) {
       this.cartProducts.splice(i, 1, item);

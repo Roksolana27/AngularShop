@@ -4,9 +4,17 @@
   <div class="row products-section">
 
     <div class="col-lg-3">
-
+      <input type="text" id="search-product" [(ngModel)]="searchProduct" placeholder="Search for product..">
       <div class="list-group">
-        <input type="text" id="search-product" [(ngModel)]="searchProduct" placeholder="Search for product..">
+        <ul class="category-list">
+          <li>{{'Skiing' | uppercase}}</li>
+          <li>{{'Mountaineering' | uppercase}}</li>
+          <li>{{'Climbing' | uppercase}}</li>
+          <li>{{'Running' | uppercase}}</li>
+          <li>{{'Hiking' | uppercase}}</li>
+          <li>{{'Biking' | uppercase}}</li>
+          <li>{{'Camping' | uppercase}}</li>
+        </ul>
       </div>
 
     </div>
@@ -16,19 +24,19 @@
 
       <div class="row goods">
 
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of products | filter : searchProduct">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products | filter : searchProduct">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{{item.img}}" alt="product"></a>
+            <a href="#"><img class="card-img-top" src="{{product.img}}" alt="product"></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{ item.name }}</a>
+                <a href="#">{{ product.name }}</a>
               </h4>
-              <h5>${{ item.price }}</h5>
-              <p class="card-text">{{ item.description }}</p>
+              <h5>{{ product.price | currency:'USD' }}</h5>
+              <p class="card-text">{{ product.description }}</p>
             </div>
             <div class="card-footer">
               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              <button class="add-item" [ngClass]="{'item-disabled': !item.available}" (click)="onAddToCart(item)" [disabled]="!item.available">Add to basket</button>
+              <button class="add-item" [ngClass]="{'item-disabled': !product.available}" (click)="onAddToCart(product)" [disabled]="!product.available">Add to basket</button>
             </div>
           </div>
         </div>

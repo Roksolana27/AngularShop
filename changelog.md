@@ -27,5 +27,3 @@
 4. Создала CoreModule и зарегистрировала в нем LocalStorageService, ConfigOptionsService, ConstantsService, GeneratorService. Подключила модуль к приложению. 
 
 
-
-

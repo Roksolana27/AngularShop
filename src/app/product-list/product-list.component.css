@@ -47,3 +47,23 @@
   color: grey;
 }
 
+.category-list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: calc((100% - 1250px)/ 2);
+  padding: 20px 0;
+}
+.category-list li {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 44px;
+  width: 230px;
+  position: relative;
+}
+.category-list li:hover {
+  color: #57c555;
+}
+

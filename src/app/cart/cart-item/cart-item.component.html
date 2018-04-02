@@ -1,3 +1,12 @@
+<div class="form_row">
+  <label>Sort by</label>
+  <select class="is_sort_select">
+     <option>Price Low - High</option>
+     <option>Price High - Low</option>
+     <option>Product Name</option>
+     <option>Quantity</option>
+  </select>
+</div>
 <table class="items-list">
   <tbody><tr>
     <th>&nbsp;</th>
@@ -7,7 +16,7 @@
     <th>Total</th>
   </tr>
   <!--Item-->
-  <tr class="item first" *ngFor="let item of cart; let i = index" [appHighlight]="color" >
+  <tr class="item first" *ngFor="let item of cart | orderBy: name; let i = index " [appHighlight]="color" >
     <td class="thumb"><a href="shop-single-item-v1.html"><img src="" alt=""></a></td>
     <td class="name"><a href="shop-single-item-v1.html">{{item.name}}</a></td>
     <td class="price">{{item.price}} $</td>

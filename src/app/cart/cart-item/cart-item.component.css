@@ -1,3 +1,23 @@
+select.is_sort_select {
+  width: 25%;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #57c655;
+  padding: 6px 30px 6px 20px;
+  background-color: transparent;
+  align-self: center;
+  border: 1px solid #57c655;
+  height: 40px;
+  margin: 10px 0 30px 0;
+}
+
+.form_row label {
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 1rem;
+  flex: 1 0 auto;
+}
+
 table.items-list{
   width: 100%;
   max-width: 820px;
