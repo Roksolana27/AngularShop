@@ -11,7 +11,12 @@ export class CartService {
   }
 
   addProductToCart(item: Product) {
-    this.cartProducts.push(item);
+    if(this.cartProducts.includes(item)){
+      item.quantity++;
+      this.updateCartProduct(item);
+    } else{
+      this.cartProducts.push(item);
+    }
   }
 
   removeProductFromCart(index) {
