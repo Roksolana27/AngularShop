@@ -1,14 +1,15 @@
-import { Pipe } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'orderBy'
+  name: 'orderBy',
+  pure: false
 })
 
-export class OrderByPipe{
-  transform(items: Array<any>, orderField: string, reverse: boolean): Array<any> {
+export class OrderByPipe implements PipeTransform{
+  transform(items: Array<any>, orderProduct: string, reverse: boolean): Array<any> {
     items.sort( ( a: any, b: any ) => {
-      let productA = a[ orderField ];
-      let productB = b[ orderField ];
+      let productA = a[ orderProduct ];
+      let productB = b[ orderProduct ];
       if (productA < productB) {
         return -1;
       }
@@ -18,7 +19,7 @@ export class OrderByPipe{
       return 0;
     });
 
-    if (reverse) {
+    if (!reverse) {
       return items.reverse();
     }
     return items;

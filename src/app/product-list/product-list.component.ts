@@ -13,8 +13,8 @@ registerLocaleData(localeFr);
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = [];
-
+  // products: Product[] = [];
+  products: any;
   constructor(private productService: ProductsService, private cartService: CartService) { }
 
   onAddToCart(item) {
@@ -23,10 +23,9 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProducts()
-      .then(products => this.products = products);
-    console.log(this.products);
-
+    // this.productService.getProducts()
+    //   .then((products:Product[]) => this.products = products);
+    this.products = this.productService.getProducts();
     }
 }
 

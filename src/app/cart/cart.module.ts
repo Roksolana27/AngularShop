@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CartService } from './shared/services/cart.service';
 import { CartComponent } from './cart.component';
@@ -15,6 +16,7 @@ import { OrderByPipe } from './shared/pipes/order-by.pipe';
   ],
   imports: [
     CommonModule,
+    FormsModule
   ],
   providers: [
     CartService

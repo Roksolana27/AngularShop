@@ -24,7 +24,7 @@
 
       <div class="row goods">
 
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products | filter : searchProduct">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of (products | async) | filter : searchProduct">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="{{product.img}}" alt="product"></a>
             <div class="card-body">

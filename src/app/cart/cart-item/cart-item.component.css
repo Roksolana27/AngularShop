@@ -9,6 +9,7 @@ select.is_sort_select {
   border: 1px solid #57c655;
   height: 40px;
   margin: 10px 0 30px 0;
+  outline: none;
 }
 
 .form_row label {

@@ -6,8 +6,12 @@ export class ProductsService {
 
   constructor() { }
 
-  getProducts() {
-    return Promise.resolve(Products);
+  getProducts(){
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Products);
+      }, 2000);
+    })
   }
 }
 
@@ -26,7 +30,7 @@ const Products: Product[] = [
     description: 'Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.',
     price: 39.95,
     img: '../assets/img/chalkbag.jpg',
-    available: false,
+    available: true,
     totalPrice: 39.95,
     quantity: 1
   },
@@ -71,7 +75,7 @@ const Products: Product[] = [
     description: 'Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.',
     price: 4.17,
     img: '../assets/img/sling.jpg',
-    available: false,
+    available: true,
     totalPrice: 4.17,
     quantity: 1
   },
