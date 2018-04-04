@@ -9,7 +9,7 @@ import { Product } from './../product-list/shared/interfaces/products.interface'
 })
 export class CartComponent implements OnInit {
   cart: Product[] = [];
-  subtotal: any;
+  subtotal = this.cartService.cartTotal;
 
   constructor(private cartService: CartService) { }
 
@@ -33,7 +33,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.getCartProducts();
-    this.subtotal = this.cartService.cartTotal;
 
     // this.cartService.getTotalPrice().subscribe((price) => {
     //   this.subtotal = price;

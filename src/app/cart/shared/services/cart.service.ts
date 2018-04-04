@@ -10,7 +10,11 @@ export class CartService {
 
   constructor() { }
 
-  cartTotal = new BehaviorSubject<number>(this.count);
+  private cartTotal$ = new BehaviorSubject<number>(this.count);
+
+  get cartTotal(): BehaviorSubject<number> {
+    return this.cartTotal$;
+  }
 
   getCartProducts() {
     this.updateTotalPrice();
