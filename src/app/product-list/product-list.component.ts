@@ -3,7 +3,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { ProductsService } from './shared/services/products.service';
 import { CartService } from '../cart/shared/services/cart.service';
-import { Product } from './shared/interfaces/products.interface';
+// import { Product } from './shared/interfaces/products.interface';
 
 registerLocaleData(localeFr);
 

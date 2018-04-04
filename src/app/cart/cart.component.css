@@ -15,9 +15,10 @@ input.btn.btn-black.btn-block {
   margin: 15px 0;
 }
 
-input.btn.btn-primary.btn-sm.btn-block {
+input.btn-primary {
   background: #292c2e !important;
   border-radius: 0;
   padding: 10px 0;
   border: none;
+  outline: none;
 }

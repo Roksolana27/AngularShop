@@ -18,15 +18,11 @@
             <table>
               <tbody><tr>
                 <td>Cart subtotal: </td>
-                <td class="total align-r"> {{subtotal}} $</td>
+                <td class="total align-r"> {{subtotal | async}} $</td>
               </tr>
               <tr class="devider">
                 <td>Shipping</td>
                 <td class="align-r">Free shipping</td>
-              </tr>
-              <tr>
-                <td>Order total</td>
-                <td class="total align-r"> $</td>
               </tr>
               </tbody></table>
 
@@ -55,7 +51,7 @@
               <label class="sr-only" for="postcode">Postcode/ ZIP</label>
               <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode/ ZIP">
             </div>
-            <input class="btn btn-primary btn-sm btn-block" name="update-totals" value="Clean cart" (click)="cleanCart()">
+            <input type="button" class="btn btn-primary btn-sm btn-block" name="update-totals" value="Clean cart" (click)="cleanCart()">
           </div>
         </form>
       </div>

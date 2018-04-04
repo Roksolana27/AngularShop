@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject  } from '@angular/core';
+import {Component, OnInit, Inject, ChangeDetectionStrategy} from '@angular/core';
 import { CartService } from './shared/services/cart.service';
 import { Product } from './../product-list/shared/interfaces/products.interface';
 
@@ -6,6 +6,7 @@ import { Product } from './../product-list/shared/interfaces/products.interface'
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
   cart: Product[] = [];
@@ -31,8 +32,15 @@ export class CartComponent implements OnInit {
   }
 
 
+
   ngOnInit() {
     this.getCartProducts();
+    this.subtotal = this.cartService.cartTotal;
+
+    // this.cartService.getTotalPrice().subscribe((price) => {
+    //   this.subtotal = price;
+    // })
+
   }
 
 }
