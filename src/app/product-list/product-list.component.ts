@@ -14,7 +14,7 @@ registerLocaleData(localeFr);
 })
 export class ProductListComponent implements OnInit {
   // products: Product[] = [];
-  products: any;
+  products: Promise<Product[]>;
   constructor(private productService: ProductsService, private cartService: CartService) { }
 
   onAddToCart(item) {
