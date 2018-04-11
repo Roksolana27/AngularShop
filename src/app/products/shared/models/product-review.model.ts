@@ -1,4 +1,4 @@
-export class User {
+export class ProductReview {
     constructor(
       public id: number,
       public firstName: string,

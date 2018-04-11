@@ -11,12 +11,15 @@ const routes: Routes = [
   },
   {
     path: 'product/:productID',
-    component: ProductComponent
+    component: ProductComponent,
+    children: [
+      {
+        path: '',
+        component: ProductReviewComponent
+      }
+    ]
   },
-  {
-    path: 'add-review',
-    component: ProductReviewComponent
-  },
+
 ]
 
 @NgModule({

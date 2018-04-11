@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from './../shared/models/user.model';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ProductReview } from '../shared/models/product-review.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-review',
@@ -7,12 +9,14 @@ import { User } from './../shared/models/user.model';
   styleUrls: ['./product-review.component.css']
 })
 export class ProductReviewComponent implements OnInit {
-  user: User;
+  @ViewChild('f') reviewForm: NgForm;
+  user: ProductReview;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   saveComment(){
-    console.log('saving...')
+    console.log(this.reviewForm.value);
   }
 
   ngOnInit() {

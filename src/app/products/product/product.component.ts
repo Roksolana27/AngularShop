@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
@@ -15,7 +14,7 @@ export class ProductComponent implements OnInit {
   productReview: Array<any>;
   product: Product[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private productService: ProductsService) {
+  constructor(private route: ActivatedRoute, private productService: ProductsService) {
     this.productReview = [
       {'review': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.',
         'author': 'John',
@@ -30,15 +29,6 @@ export class ProductComponent implements OnInit {
         'date': '7/03/18'
       }
     ];
-  }
-
-  onBuy() {
-    console.log('You are about to buy this item.');
-  }
-
-  onAddReview(){
-    const link = ['/add-review'];
-    this.router.navigate(link);
   }
 
   ngOnInit(): void{
