@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { ProductsService } from './shared/services/products.service';
-import { CartService } from '../cart/shared/services/cart.service';
-// import { Product } from './shared/interfaces/products.interface';
+
+import { CartService } from './../../cart/shared/services/cart.service';
+import { ProductsService } from './../shared/services/products.service';
+import { Product } from './../shared/interfaces/products.interface';
 
 registerLocaleData(localeFr);
 
@@ -15,11 +17,16 @@ registerLocaleData(localeFr);
 export class ProductListComponent implements OnInit {
   // products: Product[] = [];
   products: any;
-  constructor(private productService: ProductsService, private cartService: CartService) { }
+  constructor( private router: Router, private productService: ProductsService, private cartService: CartService) { }
 
   onAddToCart(item) {
     this.cartService.addProductToCart(item);
     alert(`You have just added ${item.name} to cart.`);
+  }
+
+  previewProduct(product: Product): void {
+    const link = ['/product', product.id];
+    this.router.navigate(link);
   }
 
   ngOnInit() {

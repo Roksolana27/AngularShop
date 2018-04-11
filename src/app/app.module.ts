@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { CartModule } from './cart/cart.module';
-import { ProductsModule } from './product-list/products.module';
+import { ProductsModule } from './products/products.module';
 import { CoreModule } from "./core/core.module";
 
 import { AppComponent } from './app.component';

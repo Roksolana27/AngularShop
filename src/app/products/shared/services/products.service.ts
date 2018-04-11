@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../interfaces/products.interface';
+import { Product } from './../interfaces/products.interface';
 
 @Injectable()
 export class ProductsService {
-
   constructor() { }
 
   getProducts(){
     return Promise.resolve(Products);
+  }
+
+  getProduct(id: number): Promise<Product>{
+    return this.getProducts()
+      .then(products => products.find(product => product.id === +id))
+      .catch(() => Promise.reject('Error in getTask method'));
   }
 }
 

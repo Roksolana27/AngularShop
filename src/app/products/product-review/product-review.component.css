@@ -1,25 +1,20 @@
-.product-section{
+.review-section{
   padding-top: 80px;
 }
-.btn-buy{
-  float: right;
+input.form-control{
+  width: 48%;
+  margin: 5px;
+  border-radius: 0;
 }
-.navbar{
-  background-color: #57c555;
+input.form-control:first-child{
+  float:left;
 }
-.navbar-brand, .nav-item a{
-  color: white;
+#comment{
+  width: 97.5%;
+  margin: 5px;
+  border-radius: 0;
 }
-.img-description{
-  display: inline-block;
-}
-.img-card{
-  float: left;
-}
-.card-title{
-  margin: 12px;
-}
-.btn-buy, .btn-review{
+.btn-review{
   font-size: .875rem;
   color: #fff;
   background-color: #57c655;
@@ -31,5 +26,5 @@
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+  margin-left: 5px;
 }
-

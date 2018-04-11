@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+
+import { switchMap } from 'rxjs/operators';
+import { ProductsService } from './../shared/services/products.service';
+import { Product } from './../shared/interfaces/products.interface';
 
 @Component({
   selector: 'app-product',
@@ -6,19 +12,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  name: string;
-  description: string;
-  price: number;
-  isAvailable: boolean;
-  img: string;
   productReview: Array<any>;
+  product: Product[] = [];
 
-  constructor() {
-    this.name = 'Helmet';
-    this.description = 'Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain. Its sturdy hybrid construction provides maximum protection against both impacts from above and diagonal impacts. To provide ideal comfort, the helmet is equipped with large ventilation openings to keep your head cool. Should it get dark, the helmet is compatible with headlamps. Two clips on the front of the helmet and an elastic strap on the back of the helmet provide perfect support for the lighting.';
-    this.price = 99.95;
-    this.isAvailable = false;
-    this.img = '../assets/img/helmet.jpg';
+  constructor(private router: Router, private route: ActivatedRoute, private productService: ProductsService) {
     this.productReview = [
       {'review': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.',
         'author': 'John',
@@ -39,7 +36,23 @@ export class ProductComponent implements OnInit {
     console.log('You are about to buy this item.');
   }
 
-  ngOnInit() {
+  onAddReview(){
+    const link = ['/add-review'];
+    this.router.navigate(link);
+  }
+
+  ngOnInit(): void{
+    this.route.paramMap
+      .pipe(
+        switchMap((params: Params) => {
+          return params.get('productID')
+            ? this.productService.getProduct(+params.get('productID'))
+            : Promise.resolve(null);
+        })
+      ).subscribe(
+      product => this.product = {...product},
+      err => console.log(err)
+    );
   }
 
 }

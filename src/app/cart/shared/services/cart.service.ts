@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 // import { Observable } from 'rxjs/Observable';
-import { Product } from '../../../product-list/shared/interfaces/products.interface';
+import { Product } from '../../../products/shared/interfaces/products.interface';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()

@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ProductsRoutingModule } from './products-routing.module';
 
 import { ProductsService} from './shared/services/products.service';
 import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product-list.component';
+import { ProductListComponent } from './product-list/product-list.component';
 import { FilterPipe} from './shared/pipes/filter.pipe';
+import { ProductReviewComponent } from './product-review/product-review.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductComponent,
-    FilterPipe
+    FilterPipe,
+    ProductReviewComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ProductsRoutingModule
   ],
   providers: [
     ProductsService

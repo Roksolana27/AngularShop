@@ -66,4 +66,7 @@
 .category-list li:hover {
   color: #57c555;
 }
+.card{
+  cursor: pointer;
+}
 

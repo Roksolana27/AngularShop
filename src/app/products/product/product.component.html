@@ -10,16 +10,16 @@
 
       <div class="card mt-4">
         <div class="img-description">
-          <img class="img-card" src="{{img}}" alt="helmet" width="375" height="375">
+          <img class="img-card" src="{{product.img}}" alt="helmet" width="375" height="375">
 
-          <h3 class="card-title">{{name}}</h3>
-          <h4>${{price}}</h4>
-          <p class="card-text">{{description}}</p>
+          <h3 class="card-title">{{product.name}}</h3>
+          <h4>${{product.price}}</h4>
+          <p class="card-text">{{product.description}}</p>
         </div>
         <div class="card-body">
           <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
           4.0 stars
-          <button class="btn-buy" disabled="!isAvailable" (click)="onBuy()">Buy</button>
+          <button class="btn-buy" disabled="!isAvailable" (click)="onBuy()">Add To Basket</button>
         </div>
       </div>
       <!-- /.card -->
@@ -34,8 +34,8 @@
             <small class="text-muted">Posted by {{item.author}} on {{item.date}}</small>
             <hr>
           </div>
-          <a href="#" class="btn btn-review">Leave a Review</a>
         </div>
+        <button class="btn btn-review" (click)="onAddReview()">Leave a Review</button>
       </div>
       <!-- /.card -->
 
