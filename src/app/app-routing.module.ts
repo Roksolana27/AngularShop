@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CartComponent } from './cart/cart.component';
-import { ProductComponent } from './products/product/product.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const appRoutes: Routes = [
   {
@@ -11,10 +11,13 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'cart', component: CartComponent
+    path: 'admin',
+    canLoad: [AuthGuard],
+    loadChildren: 'app/admin/admin.module#AdminModule',
+    data: { title: 'Admin' }
   },
   {
-    path: 'product', component: ProductComponent
+    path: 'cart', component: CartComponent
   }
 ];
 
