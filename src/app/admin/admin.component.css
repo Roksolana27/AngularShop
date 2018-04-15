@@ -1,0 +1,17 @@
+.admin-container{
+  margin-top: 100px;
+}
+.admin-container .nav-tabs {
+  border-bottom: 1px solid #e9ecef;
+}
+a.nav-link{
+  color: #292c2e;
+}
+a.nav-link:hover{
+  text-decoration: none;
+}
+.nav-item.active{
+  border: 1px solid #e9ecef;
+  border-bottom: none;
+  border-radius: 5px 5px;
+}

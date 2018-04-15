@@ -8,13 +8,11 @@ import { CoreModule } from "./core/core.module";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
-import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    AdminComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

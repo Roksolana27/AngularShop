@@ -1,0 +1,24 @@
+<div class="container dashboard-container">
+  <div class="row" *ngFor="let product of (products | async)">
+    <div class="col-12 list-product">
+      <a class="image">
+        <img src="{{product.img}}" class="img-fluid" width="200" height="200">
+      </a>
+      <div class="info">
+        <a  class="name">
+          {{product.name}}
+        </a>
+        <div class="price">
+              <span>
+                {{product.price | currency:'USD'}}
+              </span>
+        </div>
+        <div class="description">
+          {{ product.description }}
+        </div>
+        <button class="edit-product" (click)="onEditProduct(product)">Edit</button>
+        <button class="delete-product">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

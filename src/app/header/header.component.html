@@ -15,8 +15,9 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/admin">Admin</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link basket" routerLink="/login">Login</a>
+        <li class="nav-item">
+          <a class="nav-link nav-log" (click)="login()" *ngIf="!authService.isLoggedIn">Login</a>
+          <a class="nav-link nav-log" (click)="logout()" *ngIf="authService.isLoggedIn">Logout</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link basket" routerLink="/cart">

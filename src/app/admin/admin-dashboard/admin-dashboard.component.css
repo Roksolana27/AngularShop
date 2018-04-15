@@ -1,0 +1,33 @@
+.dashboard-container{
+  margin-top: 40px;
+}
+.list-product {
+  margin-bottom: 40px;
+}
+.list-product .image {
+  display: block;
+  float: left;
+  width: 25%;
+  position: relative;
+}
+.list-product .info {
+  float: left;
+  width: 75%;
+  padding-left: 40px;
+  margin-top: 20px;
+}
+.edit-product, .delete-product{
+  float: left;
+  font-size: .875rem;
+  color: #fff;
+  background-color: #3a444e;
+  padding: 12px 15px;
+  font-family: sans-serif;
+  font-weight: 400;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  margin: 5px;
+}
