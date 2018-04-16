@@ -18,6 +18,7 @@ export class ModifyProductComponent implements OnInit {
 
   saveProduct(){
     console.log(this.productForm.value);
+    this.productService.updateProduct(this.productForm.value);
   }
 
   ngOnInit(): void {

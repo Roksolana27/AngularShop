@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
+import { CartService } from './../../cart/shared/services/cart.service';
 import { ProductsService } from './../shared/services/products.service';
 import { Product } from './../shared/interfaces/products.interface';
 
@@ -14,7 +15,7 @@ export class ProductComponent implements OnInit {
   productReview: Array<any>;
   product: Product[] = [];
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService) {
+  constructor(private route: ActivatedRoute, private productService: ProductsService,  private cartService: CartService) {
     this.productReview = [
       {'review': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.',
         'author': 'John',
@@ -29,6 +30,11 @@ export class ProductComponent implements OnInit {
         'date': '7/03/18'
       }
     ];
+  }
+
+  onAddToCart(product: Product) {
+    this.cartService.addProductToCart(product);
+    alert(`You have just added ${product.name} to cart.`);
   }
 
   ngOnInit(): void{

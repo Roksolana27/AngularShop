@@ -3,6 +3,7 @@ import { Product } from './../interfaces/products.interface';
 
 @Injectable()
 export class ProductsService {
+  products: Product[] = Products;
   constructor() { }
 
   getProducts(){
@@ -13,6 +14,16 @@ export class ProductsService {
     return this.getProducts()
       .then(products => products.find(product => product.id === +id))
       .catch(() => Promise.reject('Error in getTask method'));
+  }
+
+  updateProduct(product: Product) {
+    const id = window.location.pathname.split( '/' ).pop();
+    const i = this.products.findIndex(product => product.id === +id );
+    if (i > -1) {
+      this.products.splice(i, 1, product);
+    }else{
+      this.products.push(product);
+    }
   }
 }
 
