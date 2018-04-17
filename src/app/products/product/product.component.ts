@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
 import { CartService } from './../../cart/shared/services/cart.service';
-import { ProductsService } from './../shared/services/products.service';
+import { ProductsPromiseService } from './../shared/services/products.promise.service';
 import { Product } from './../shared/interfaces/products.interface';
 
 @Component({
@@ -13,9 +13,9 @@ import { Product } from './../shared/interfaces/products.interface';
 })
 export class ProductComponent implements OnInit {
   productReview: Array<any>;
-  product: Product[] = [];
+  product: Array<Product> = [];
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService,  private cartService: CartService) {
+  constructor(private route: ActivatedRoute, private productsPromiseService: ProductsPromiseService, private cartService: CartService) {
     this.productReview = [
       {'review': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.',
         'author': 'John',
@@ -42,11 +42,12 @@ export class ProductComponent implements OnInit {
       .pipe(
         switchMap((params: Params) => {
           return params.get('productID')
-            ? this.productService.getProduct(+params.get('productID'))
+            ? this.productsPromiseService.getProduct(+params.get('productID'))
             : Promise.resolve(null);
         })
-      ).subscribe(
-      product => this.product = {...product},
+      )
+      .subscribe(
+      product => {this.product = {...product};},
       err => console.log(err)
     );
   }

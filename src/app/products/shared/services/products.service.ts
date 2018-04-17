@@ -106,7 +106,7 @@ const Products: Product[] = [
     price: 11.95,
     img: '../assets/img/yogibelt.jpg',
     available: true,
-    totalPrice: 11.95,
+    totalPrice: 11.96,
     quantity: 1
   },
 ];

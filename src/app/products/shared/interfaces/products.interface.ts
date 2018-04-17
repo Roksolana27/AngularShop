@@ -6,5 +6,5 @@ export interface Product {
   totalPrice?: number;
   img?: string;
   quantity?: number;
-  available: boolean;
+  available?: boolean;
 }

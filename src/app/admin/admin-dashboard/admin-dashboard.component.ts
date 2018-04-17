@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductsService } from './../../products/shared/services/products.service';
+import { ProductsPromiseService } from './../../products/shared/services/products.promise.service';
 import { Product } from './../../products/shared/interfaces/products.interface';
 
 @Component({
@@ -9,16 +9,22 @@ import { Product } from './../../products/shared/interfaces/products.interface';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  products: any;
-  constructor(private productService: ProductsService, private router: Router) { }
+  products: Array<Product> = [];
+  constructor(private productsPromiseService: ProductsPromiseService, private router: Router) { }
 
   onEditProduct(product: Product): void{
     const link = ['/admin/modify-product', product.id];
     this.router.navigate(link);
   }
 
+  onDeleteProduct(product: Product){
+    this.productsPromiseService.deleteProduct(product)
+      .then(() => (this.products = this.products.filter(item => item.id !== product.id)))
+      .catch(err => console.log(err))
+  }
+
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.products = this.productsPromiseService.getProducts();
   }
 
 }

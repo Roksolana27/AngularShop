@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
@@ -17,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CartModule,
     ProductsModule,
     CoreModule

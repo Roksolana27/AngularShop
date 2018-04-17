@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
-import { ProductsService } from './../../products/shared/services/products.service';
+import { ProductsPromiseService } from './../../products/shared/services/products.promise.service';
 import { Product } from './../../products/shared/interfaces/products.interface';
 
 @Component({
@@ -11,14 +12,20 @@ import { Product } from './../../products/shared/interfaces/products.interface';
   styleUrls: ['./modify-product.component.css']
 })
 export class ModifyProductComponent implements OnInit {
-  product: Product;
-  @ViewChild('f') productForm: NgForm;
+  product: Array<Product> = [];
+  // @ViewChild('f') productForm: NgForm;
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private productsPromiseService: ProductsPromiseService) { }
 
-  saveProduct(){
-    console.log(this.productForm.value);
-    this.productService.updateProduct(this.productForm.value);
+  saveProduct(product: Product){
+    if(product.id) {
+      this.productsPromiseService.updateProduct(product)
+        .then( () => this.location.back());
+    }else{
+      this.productsPromiseService.createProduct(product);
+      this.location.back()
+    }
+
   }
 
   ngOnInit(): void {
@@ -26,13 +33,14 @@ export class ModifyProductComponent implements OnInit {
       .pipe(
         switchMap((params: Params) => {
           return params.get('productID')
-            ? this.productService.getProduct(+params.get('productID'))
+            ? this.productsPromiseService.getProduct(+params.get('productID'))
             : Promise.resolve(null);
         })
-      ).subscribe(
-      product => this.product = {...product},
-      err => console.log(err)
-    );
+      )
+      .subscribe(
+        product => {this.product = {...product};},
+        err => console.log(err)
+      );
   }
 
 }

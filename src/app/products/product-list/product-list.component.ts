@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
-import { ProductsService } from './../shared/services/products.service';
+import { ProductsPromiseService } from './../shared/services/products.promise.service';
 import { Product } from './../shared/interfaces/products.interface';
-
 registerLocaleData(localeFr);
 
 @Component({
@@ -14,20 +13,24 @@ registerLocaleData(localeFr);
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  // products: Product[] = [];
-  products: any;
+  products: Array<Product>;
   searchProduct: any;
-  constructor( private router: Router, private productService: ProductsService) { }
+  constructor( private router: Router, private productsPromiseService: ProductsPromiseService) { }
 
   previewProduct(product: Product): void {
     const link = ['/product', product.id];
     this.router.navigate(link);
   }
 
+  private async getProducts(){
+    this.products = await this.productsPromiseService.getProducts();
+  }
+
   ngOnInit() {
     // this.productService.getProducts()
     //   .then((products:Product[]) => this.products = products);
-    this.products = this.productService.getProducts();
+    // this.products = this.productService.getProducts();
+    this.getProducts().catch(err => console.log(err));
     }
 }
 
