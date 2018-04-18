@@ -9,12 +9,14 @@ export class TimingInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // request interceptor
     let clonedRequest;
-    if (req.url) {
+    let reqTime;
+    let resTime;
+    if (req.url.includes('products')) {
+      reqTime = Date.now().toString();
       clonedRequest = req.clone({
         params: new HttpParams()
           .set('ts_interceptor', Date.now().toString())
       });
-      console.log(clonedRequest);
     } else {
       clonedRequest = req;
     }
@@ -25,9 +27,9 @@ export class TimingInterceptor implements HttpInterceptor {
         map((event: HttpEvent<any>) => {
           if (event instanceof HttpResponse) {
             // do stuff with response
-            console.log('Response Interceptor');
+            resTime = Date.now().toString();
             console.log(event);
-            console.log(event.body);
+            console.log((resTime - reqTime)/1000);
             return event;
           }
         })
