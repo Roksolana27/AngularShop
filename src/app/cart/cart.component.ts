@@ -10,7 +10,6 @@ import { Product } from '../products/shared/interfaces/products.interface';
 })
 export class CartComponent implements OnInit {
   cart: Observable<Array<Product>>;
-  // cart: Array<Product>;
   // subtotal = this.cartObservableService.cartTotal;
   subtotal: any;
   constructor(private cartObservableService:CartObservableService) { }
