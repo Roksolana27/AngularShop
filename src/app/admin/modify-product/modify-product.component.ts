@@ -12,7 +12,7 @@ import { Product } from './../../products/shared/interfaces/products.interface';
   styleUrls: ['./modify-product.component.css']
 })
 export class ModifyProductComponent implements OnInit {
-  product: Array<Product> = [];
+  product: Product;
   // @ViewChild('f') productForm: NgForm;
 
   constructor(private route: ActivatedRoute, private location: Location, private productsPromiseService: ProductsPromiseService) { }

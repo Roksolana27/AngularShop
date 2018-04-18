@@ -17,14 +17,17 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigate(link);
   }
 
-  onDeleteProduct(product: Product){
-    this.productsPromiseService.deleteProduct(product)
-      .then(() => (this.products = this.products.filter(item => item.id !== product.id)))
-      .catch(err => console.log(err))
+  // onDeleteProduct(product: Product){
+  //   // this.productsPromiseService.deleteProduct(product)
+  //   //   .then(() => (this.products = this.products.filter(item => item.id !== product.id)))
+  //   //   .catch(err => console.log(err))
+  // }
+  private async getProducts() {
+    this.products = await this.productsPromiseService.getProducts();
   }
 
   ngOnInit() {
-    this.products = this.productsPromiseService.getProducts();
-  }
+    this.getProducts().catch(err => console.log(err));
 
+  }
 }

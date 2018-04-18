@@ -13,7 +13,7 @@ import { Product } from './../shared/interfaces/products.interface';
 })
 export class ProductComponent implements OnInit {
   productReview: Array<any>;
-  product: Array<Product> = [];
+  product: Product;
 
   constructor(private route: ActivatedRoute, private productsPromiseService: ProductsPromiseService, private cartService: CartService) {
     this.productReview = [
@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void{
+    this.product = new Product(null, '', '', null);
     this.route.paramMap
       .pipe(
         switchMap((params: Params) => {

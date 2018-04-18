@@ -7,6 +7,7 @@ import { Product } from '../../products/shared/interfaces/products.interface';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit {
+  orderProduct: string;
   color: string;
   @Input() cart: Product;
 
