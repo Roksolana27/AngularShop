@@ -28,7 +28,12 @@ export class ModifyProductComponent implements OnInit {
 
   }
 
+  goBack() {
+    this.location.back();
+  }
+
   ngOnInit(): void {
+    this.product = new Product(null, '', '', null);
     this.route.paramMap
       .pipe(
         switchMap((params: Params) => {

@@ -19,8 +19,8 @@ export class CartItemComponent implements OnInit {
 
   constructor() { }
 
-  removeCartProduct(i) {
-    this.cartItem.emit(i);
+  removeCartProduct(item) {
+    this.cartItem.emit(item);
   }
 
   increment(item: Product) {

@@ -6,6 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class OrderByPipe implements PipeTransform{
   transform(items: Array<any>, orderProduct: string, reverse: boolean): Array<any> {
+    if (!items) return;     // TODO: ask Vitaly about this workaround
+
+
     items.sort( ( a: any, b: any ) => {
       let productA = a[ orderProduct ];
       let productB = b[ orderProduct ];

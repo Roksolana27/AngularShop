@@ -15,7 +15,7 @@
     <th>Total</th>
   </tr>
   <!--Item-->
-  <tr class="item first" *ngFor="let item of cart | orderBy: orderProduct; let i = index " [appHighlight]="color" >
+  <tr class="item first" *ngFor="let item of cart | async | orderBy: orderProduct; let i = index " [appHighlight]="color" >
     <td class="thumb"><a href="shop-single-item-v1.html"><img src="" alt=""></a></td>
     <td class="name"><a href="shop-single-item-v1.html">{{item.name}}</a></td>
     <td class="price">{{item.price | currency:'USD'}}</td>
@@ -25,7 +25,7 @@
       <a class="incr-btn" (click)="increment(item)">+</a>
     </td>
     <td class="total">{{item.totalPrice}} $</td>
-    <td class="delete"><i class="icon-delete" (click)="removeCartProduct(i)">x</i></td>
+    <td class="delete"><i class="icon-delete" (click)="removeCartProduct(item)">x</i></td>
   </tr>
   <!--Item-->
   </tbody>

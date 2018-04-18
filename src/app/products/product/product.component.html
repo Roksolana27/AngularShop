@@ -19,7 +19,7 @@
         <div class="card-body">
           <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
           4.0 stars
-          <button class="add-item" [ngClass]="{'item-disabled': !product.available}" (click)="onAddToCart(product)" [disabled]="!product.available">Add to basket</button>
+          <button type="submit" class="add-item" [ngClass]="{'item-disabled': !product.available}" (click)="onAddToCart(product)" [disabled]="!product.available">Add to basket</button>
         </div>
       </div>
       <!-- /.card -->

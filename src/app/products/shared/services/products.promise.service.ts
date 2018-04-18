@@ -58,16 +58,16 @@ export class ProductsPromiseService {
       .catch(this.handleError);
   }
 
-  // deleteProduct(product: Product): Promise<Product> {
-  //   // const url = `${this.productsUrl}/${product.id}`;
-  //   //
-  //   // return (
-  //   //   this.http
-  //   //     .delete(url)
-  //   //     .toPromise()
-  //   //     .catch(this.handleError)
-  //   // );
-  // }
+  deleteProduct(product: Product): Promise<Product> {
+    const url = `${this.productsUrl}/${product.id}`;
+
+    return (
+      this.http
+        .delete(url)
+        .toPromise()
+        .catch(this.handleError)
+    );
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
