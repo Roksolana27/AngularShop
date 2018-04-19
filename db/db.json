@@ -121,6 +121,16 @@
       "available": true,
       "totalPrice": 39.95,
       "quantity": 1
+    },
+    {
+      "id": 6,
+      "name": "Harness",
+      "description": "Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.",
+      "price": 129.95,
+      "img": "../assets/img/harness.jpg",
+      "available": true,
+      "totalPrice": 129.95,
+      "quantity": 1
     }
   ]
 }

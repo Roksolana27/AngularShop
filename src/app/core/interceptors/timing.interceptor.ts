@@ -19,6 +19,7 @@ export class TimingInterceptor implements HttpInterceptor {
       });
     } else {
       clonedRequest = req;
+      return next.handle(clonedRequest);
     }
 
     return next.handle(clonedRequest)
