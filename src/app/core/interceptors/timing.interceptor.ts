@@ -29,7 +29,7 @@ export class TimingInterceptor implements HttpInterceptor {
             // do stuff with response
             resTime = Date.now().toString();
             console.log(event);
-            console.log((resTime - reqTime)/1000);
+            console.log('time: ' + (resTime - reqTime)/1000);
             return event;
           }
         })
