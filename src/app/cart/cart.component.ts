@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CartObservableService } from './shared/services/cart.observable.service';
+import { OrderService } from './shared/services/order.service';
 import { Product } from '../products/shared/interfaces/products.interface';
 
 @Component({
@@ -10,9 +11,10 @@ import { Product } from '../products/shared/interfaces/products.interface';
 })
 export class CartComponent implements OnInit {
   cart: Observable<Array<Product>>;
-  // subtotal = this.cartObservableService.cartTotal;
   subtotal: any;
-  constructor(private cartObservableService:CartObservableService) { }
+  private order = [];
+
+  constructor(private cartObservableService:CartObservableService, private orderService: OrderService) { }
 
   getCartProducts(){
     this.cart = this.cartObservableService.getCartProducts();
@@ -23,22 +25,27 @@ export class CartComponent implements OnInit {
   }
 
   updateCartProduct(product: Product){
-    // this.cartService.updateCartProduct(product);
     this.cartObservableService.updateCartProduct(product).subscribe(data => console.log("updated!"));
   }
 
   cleanCart(){
-    // this.cartObservableService.cleanCart();
+  //  how to clean cart?
+  }
+
+  createOrder(){
+    // this.cartObservableService.getCartProducts().subscribe(data => {
+    //   this.order.push(data);
+    //   // this.orderService.createOrder(this.order).subscribe(data => console.log('Order created!'))
+    // });
   }
 
 
   ngOnInit() {
     this.getCartProducts();
-    this.cartObservableService.cartTotal.subscribe(data => console.log(data));
 
-    this.cartObservableService.getTotalPrice().subscribe((price) => {
-      this.subtotal = price;
-    })
+    // this.cartObservableService.getTotalPrice().subscribe((price) => {
+    //   this.subtotal = price;
+    // });
 
   }
 

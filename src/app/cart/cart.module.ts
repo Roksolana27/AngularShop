@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CartService } from './shared/services/cart.service';
 import { CartObservableService } from './shared/services/cart.observable.service';
 import { CartAPIProvider } from './cart.config';
+import { OrderService } from './shared/services/order.service';
+import { OrderAPIProvider } from './order.config';
 
 import { CartComponent } from './cart.component';
 import { HighlightDirective } from './shared/directives/highlight.directive';
@@ -22,9 +23,10 @@ import { OrderByPipe } from './shared/pipes/order-by.pipe';
     FormsModule
   ],
   providers: [
-    CartService,
     CartObservableService,
-    CartAPIProvider
+    CartAPIProvider,
+    OrderService,
+    OrderAPIProvider
   ]
 })
 export class CartModule { }

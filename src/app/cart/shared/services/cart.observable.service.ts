@@ -10,7 +10,7 @@ import { CartAPI } from './../../cart.config';
 
 @Injectable()
 export class CartObservableService {
-  private cartProducts: Product[] = []; //TODO: get product quantity from cart
+  private cartProducts: any; //TODO: get product quantity from cart
   private count: number = 0;
   private cartTotal$ = new BehaviorSubject<number>(this.count);
 
@@ -66,15 +66,13 @@ export class CartObservableService {
       );
   }
 
-
   updateTotalPrice(){
     this.count = 0;
-
-    if(this.cartProducts.length > 0){
-      this.cartProducts.forEach((item) => {
-        this.count = Math.round((item.totalPrice + this.count) * 100 ) / 100;
+    this.cartProducts = this.getCartProducts().subscribe(result => {
+      result.forEach((item) => {
+         this.count = Math.round((item.totalPrice + this.count) * 100 ) / 100;
       });
-    }
+    });
     console.log(this.cartProducts);
     this.cartTotal.next(this.count);
   }

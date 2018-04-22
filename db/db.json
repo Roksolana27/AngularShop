@@ -89,39 +89,16 @@
       "available": true,
       "totalPrice": 11.95,
       "quantity": 1
+    },
+    {
+      "name": "Marmut Helmet",
+      "price": 78.95,
+      "quantity": 1,
+      "description": "New item",
+      "id": 10
     }
   ],
   "cart": [
-    {
-      "id": 3,
-      "name": "Carabiner",
-      "description": "Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.",
-      "price": 8.95,
-      "img": "../assets/img/carabiner.jpg",
-      "available": true,
-      "totalPrice": 8.95,
-      "quantity": 1
-    },
-    {
-      "id": 4,
-      "name": "Climbing shoes",
-      "description": "Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.",
-      "price": 99.95,
-      "img": "../assets/img/climbing-shoes.jpg",
-      "available": true,
-      "totalPrice": 99.95,
-      "quantity": 1
-    },
-    {
-      "id": 2,
-      "name": "Chalkbag",
-      "description": "Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.",
-      "price": 39.95,
-      "img": "../assets/img/chalkbag.jpg",
-      "available": true,
-      "totalPrice": 39.95,
-      "quantity": 1
-    },
     {
       "id": 6,
       "name": "Harness",
@@ -131,6 +108,17 @@
       "available": true,
       "totalPrice": 129.95,
       "quantity": 1
+    },
+    {
+      "id": 7,
+      "name": "Sling",
+      "description": "Petzl is the ideal lightweight climbing helmet for sport climbing and other activities on the mountain.",
+      "price": 4.17,
+      "img": "../assets/img/sling.jpg",
+      "available": true,
+      "totalPrice": 16.68,
+      "quantity": 4
     }
-  ]
+  ],
+  "orders": []
 }
